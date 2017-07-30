@@ -1,0 +1,47 @@
+// Left side column. contains the logo and sidebar
+aside.main-sidebar
+  // sidebar: style can be found in sidebar.less
+  section.sidebar
+    // Sidebar user panel (optional)
+    .user-panel
+      .pull-left.image
+        img.img-circle(src='/images/user2-160x160.jpg', alt='User Image')
+      .pull-left.info
+        p Alexander Pierce
+        // Status
+        a(href='#')
+          i.fa.fa-circle.text-success
+          |  Online
+    // search form (Optional)
+    form.sidebar-form(action='#', method='get')
+      .input-group
+        input.form-control(type='text', name='q', placeholder='Search...')
+        span.input-group-btn
+          button#search-btn.btn.btn-flat(type='submit', name='search')
+            i.fa.fa-search
+    // /.search form
+    // Sidebar Menu
+    ul.sidebar-menu(data-widget='tree')
+      li.header HEADER
+      // Optionally, you can add icons to the links
+      li.active
+        a(href='#')
+          i.fa.fa-link
+          span Link
+      li
+        a(href='../example/example01')
+          i.fa.fa-link
+          span Another Link
+      li.treeview
+        a(href='#')
+          i.fa.fa-link
+          span Example
+          span.pull-right-container
+            i.fa.fa-angle-left.pull-right
+        ul.treeview-menu
+          li
+            a(href='../example/example01') 01 Grid Binding
+          li
+            a(href='../example/example02') 02 Text Binding
+          li
+            a(href='../example/example03') 03 Two ComboBox Binding

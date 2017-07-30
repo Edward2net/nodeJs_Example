@@ -1,0 +1,18 @@
+extends ../../Shared/layout
+
+block append head
+  script(type="text/javascript", src='../js/example/example02.js')
+
+block scripts
+  script.
+    //使用new MyViewModel()產生一個ViewModel個體
+    ko.applyBindings(new MyViewModel());
+  style.
+
+block content
+  br
+  input(type="text", data-bind="value: firstName")
+  input(type="text", data-bind="value: lastName")
+  br
+  br
+  span(data-bind="text: fullName")

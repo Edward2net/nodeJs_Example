@@ -1,0 +1,26 @@
+extends ../../Shared/layout
+
+block append head
+  // 台灣郵遞區號資料
+  script(type="text/javascript", src='../js/example/TaiwanZip.js')
+  script(type="text/javascript", src='../js/example/example03.js')
+
+block scripts
+  script.
+    //由taiwanZips取出程式清單
+    var cityNames = [];
+    for (var propName in taiwanZipData)
+        cityNames.push(propName);
+    
+    ko.applyBindings(new MyViewModel());
+
+block content
+  select(data-bind="options: cities, optionsCaption: '選擇縣市', value: city")
+  select(data-bind="options: areas, optionsCaption: '選擇區域', optionsText: 'text', optionsValue: 'value', value: areaZip")
+  |     <==> 
+  input(data-bind="value: addrPrefix")
+  br
+  span(style="font-size: 8pt")
+    | INPUT連動SELECT測試: 在INPUT貼入"
+    span(style="color: red") 台北市大安區106
+    | "後按Tab跳開

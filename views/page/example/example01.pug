@@ -1,0 +1,57 @@
+extends ../../Shared/layout
+
+block append head
+  script(type="text/javascript", src='../js/example/example01.js')
+
+block scripts
+  script.
+    var vm = new MyViewModel();
+    //預先增加一些User
+    vm.users.push(
+        new UserViewModel("M1", "Jeffrey", 32767));
+    vm.users.push(
+        new UserViewModel("M2", "Darkthread", 65535));
+    //按鈕時動態增加User
+    var c = 2;
+
+    $("#btnAddUser").click(function () {
+        var now = new Date(); //用時間產生隨機屬性值
+        vm.users.push(new UserViewModel(
+            "M" + c++,
+            "P" + "-" + now.getSeconds() * now.getMilliseconds(),
+            now.getMilliseconds()));
+    });
+    ko.applyBindings(vm);
+  style.
+    table { width: 400px }
+    td,th { border: 1px solid gray; text-align: center }
+
+block content
+  .mdl-grid
+    .mdl-cell.mdl-cell--12-col
+      // 實際顯示頁面
+      input#btnAddUser(type='button', value='新增User')
+      | 共 
+      span(data-bind='text: users().length')
+      |  筆，
+      | 合計 
+      span(data-bind='text: totalScore')
+      |  分
+      table
+        thead
+          tr
+            th Id
+            th 姓名
+            th 積分
+            th
+        p
+        tbody(data-bind='foreach: users')
+          tr
+            td
+              span(data-bind='text: id')
+            td
+              span(data-bind='text: name')
+            td
+              span(data-bind='text: score', style='text-align: right')
+            td
+              a(href='#', data-bind='click: $root.removeUser') 移除

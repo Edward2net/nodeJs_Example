@@ -1,0 +1,31 @@
+extends Shared/layout
+
+block append head
+  script(type="text/javascript", src='/js/example/example01.js')
+
+block scripts
+  script.
+    var vm = new MyViewModel();
+    //預先增加一些User
+    vm.users.push(
+        new UserViewModel("M1", "Jeffrey", 32767));
+    vm.users.push(
+        new UserViewModel("M2", "Darkthread", 65535));
+    //按鈕時動態增加User
+    var c = 2;
+
+    $("#btnAddUser").click(function () {
+        var now = new Date(); //用時間產生隨機屬性值
+        vm.users.push(new UserViewModel(
+            "M" + c++,
+            "P" + "-" + now.getSeconds() * now.getMilliseconds(),
+            now.getMilliseconds()));
+    });
+    ko.applyBindings(vm);
+
+block content
+  .mdl-grid
+    .mdl-cell.mdl-cell--12-col
+      // 實際顯示頁面
+      include ./page/example/example01
+      // p Welcome to this website
