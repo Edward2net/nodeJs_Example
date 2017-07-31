@@ -29,8 +29,12 @@ block scripts
 block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
+      p 使用 Knockout binding
+      p 
       // 實際顯示頁面
-      input#btnAddUser(type='button', value='新增User')
+      input#btnAddUser(type='button', value='新增User')      
+      p
+      p
       | 共 
       span(data-bind='text: users().length')
       |  筆，

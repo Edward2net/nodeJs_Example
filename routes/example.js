@@ -33,4 +33,12 @@ router.get('/example03', function(req, res, next) {
   });
 });
 
+/* GET example04 page. */
+router.get('/example04', function(req, res, next) {
+  res.render('./page/example/example04', { 
+    title: 'Example',
+    secoend: 'Jquery twzipcode'
+  });
+});
+
 module.exports = router;

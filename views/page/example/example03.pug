@@ -15,12 +15,32 @@ block scripts
     ko.applyBindings(new MyViewModel());
 
 block content
+  h1 使用 Knockout binding
+  br
+  p
+  h2 
+    a(href='http://blog.darkthread.net/post-2012-10-04-kolab19.aspx') 黑暗執行緒 的範例
+  p
   select(data-bind="options: cities, optionsCaption: '選擇縣市', value: city")
   select(data-bind="options: areas, optionsCaption: '選擇區域', optionsText: 'text', optionsValue: 'value', value: areaZip")
   |     <==> 
   input(data-bind="value: addrPrefix")
-  br
+  p
   span(style="font-size: 8pt")
     | INPUT連動SELECT測試: 在INPUT貼入"
     span(style="color: red") 台北市大安區106
     | "後按Tab跳開
+  br
+  h2 手動修改的範例
+  p 雙向對應三碼郵遞區號
+  select(data-bind="options: cities3, optionsCaption: '選擇縣市', value: city3")
+  select(data-bind="options: areas3, optionsCaption: '選擇區域', optionsText: 'text', optionsValue: 'value', value: areaZip3")
+  |     <==> 
+  input(data-bind="value: addrPrefix3")
+  p
+  span(style="font-size: 8pt")
+    | 直接輸入前三碼郵遞區號
+    | 如桃園縣桃園區"
+    span(style="color: red") 330
+    | "後按Tab跳開
+  br
