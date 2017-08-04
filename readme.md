@@ -5,7 +5,9 @@
 ## 需求
 1. node.js
 2. 實現具體且清晰的 mvvm 架構
-3. 實現 observer pattern
+3. 實現 Observer pattern 使前端單一依賴觀察者
+4. 實現 Repository pattern 抽離資料庫耦合
+
 
 ## step by step
 ### 環境
@@ -20,7 +22,7 @@
 
 3. 使用模版 AdminLTE Control Panel Template，複製相關檔案到 views 資料夾
 
-[參考網站](https://adminlte.io/themes/AdminLTE/index2.html)]
+[參考網站](https://adminlte.io/themes/AdminLTE/index2.html)
 
 ### 設定
 1. 設定 routes/example.js 網址呼叫請求路由
@@ -63,10 +65,16 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 ### 參考及提示網站
 [JQuery's documentation](http://api.jquery.com/)
+
 [Knockout online examples](http://knockoutjs.com/examples/)
+
 [Heroku html2pug](https://html2pug.herokuapp.com/)
+
 [黑暗執行緒 - KO範例](http://blog.darkthread.net/post-2012-05-09-knockout-js-intro.aspx)
+
 [jquery-twzipcode](https://code.essoduke.org/twzipcode/)
+
+[Node.js SQLite3](http://www.w3resource.com/node.js/nodejs-sqlite.php)
 
 
 此範例僅供練習使用，一套完整功能的程式是由無數人的智慧所累積而成的，感謝所有付出的人們
