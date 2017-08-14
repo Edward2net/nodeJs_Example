@@ -33,6 +33,9 @@ app.use('/users', users);
 // 新增路由
 app.use('/example', examples);
 
+// 加入靜態路徑對應網頁根目錄
+app.locals.basedir = path.join(__dirname, 'views');
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

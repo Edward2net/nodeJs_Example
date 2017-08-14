@@ -1,18 +1,25 @@
-extends ../../Shared/layout
+extends /Shared/layout
 
 block append head
   // 台灣郵遞區號資料
-  script(type="text/javascript", src='/jquery-twzipcode/jquery.twzipcode.js')
-  // script(type="text/javascript", src='../js/example/example04.js')
+  script(type="text/javascript", src='../js/example/TaiwanZip.js')
+  script(type="text/javascript", src='../js/example/example04.js')
 
 block scripts
   script.
-    $('#twzipcode').twzipcode();
+    //由taiwanZips取出程式清單
+    var cityNames = [];
+    for (var propName in taiwanZipData)
+        cityNames.push(propName);
+    
+    ko.applyBindings(new MyViewModel());
 
 block content
-  p 使用 jquery-twzipcode
+  p 
   p
-  twzipcode
-    div(data-role='county', data-name='表單名稱', data-value='預設值', data-style='樣式名稱')
-    div(data-role='district', data-name='district[]', data-value='大安區', data-style='district-style')
-    div(data-role='zipcode', data-name='zipcode', data-value='160', data-style='zipcode-style')
+  br
+  h2
+    | 雙 combobox 相依選擇
+  select(data-bind="options: cities3, optionsCaption: '選擇縣市', value: city3")
+  select(data-bind="options: areas3, optionsCaption: '選擇區域', optionsText: 'text', optionsValue: 'value', value: areaZip3")
+  br

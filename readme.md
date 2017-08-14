@@ -7,6 +7,7 @@
 2. 實現具體且清晰的 mvvm 架構
 3. 實現 Observer pattern 使前端單一依賴觀察者
 4. 實現 Repository pattern 抽離資料庫耦合
+5. 實現 Uint of work pattern 滿足流程執行單位
 
 
 ## step by step
