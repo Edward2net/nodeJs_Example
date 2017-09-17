@@ -41,4 +41,11 @@ router.get('/example04', function(req, res, next) {
   });
 });
 
+router.get('/example05', function(req, res, next) {
+  res.render('./page/example/example05', { 
+    title: 'Example',
+    secoend: 'Dual List'
+  });
+});
+
 module.exports = router;
